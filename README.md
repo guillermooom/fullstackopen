@@ -1,2 +1,2 @@
 # README
-my name is Guillermo and i start that curse the day 31 of December of 2024
+my name is Guillermo and i start that curse the day 04 of March of 2025

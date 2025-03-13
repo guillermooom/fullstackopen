@@ -12,12 +12,12 @@ const Part = ({ name, exercises }) => {
   )
 }
 
-const Content = (course) => {
+const Content = ({course}) => {
   return (
     <section>
-      <Part name={course.part1} exercises={course.exercises1} />
-      <Part name={course.part2} exercises={course.exercises2} />
-      <Part name={course.part3} exercises={course.exercises3} />
+      {course.map(cour => 
+        <Part name={cour.name} exercises={cour.exercises} />
+      )}
     </section>
   )
 }
@@ -31,21 +31,25 @@ const Total = (course) => {
 }
 
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    part1: 'Fundamentals of React',
-    exercises1: 10,
-    part2: 'Using props to pass data',
-    exercises2: 7,
-    part3: 'State of a component',
-    exercises3: 14
+  const course = 'Half Stack application development'
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises: 10
+  }
+  const part2 = {
+    name: 'Using props to pass data',
+    exercises: 7
+  }
+  const part3 = {
+    name: 'State of a component',
+    exercises: 14
   }
 
   return (
     <div>
-      <Header name={course.name} />
-      <Content {...course} />
-      <Total total={course.exercises1 + course.exercises2 + course.exercises3} />
+      <Header name={course} />
+      <Content course={[part1,part2,part3]} />
+      <Total total={part1.exercises + part2.exercises + part3.exercises} />
     </div>
   )
 }
